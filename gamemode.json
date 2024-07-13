@@ -17,7 +17,8 @@
       },
       {
         "Name": "PartialDesruction",
-        "DisplayName": "ЧАСТИЧНОЕ РАЗРУШЕНИЕ",
+        "DisplayName": "ЧАСТИЧНОЕ РАЗРУШЕНИЕ"
+        "Default": true
       },
       {
         "Name": "LoosenBlocks",
