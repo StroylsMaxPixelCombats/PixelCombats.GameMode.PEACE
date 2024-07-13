@@ -13,15 +13,15 @@
     "Bool": [
       {
         "Name": "Damage",
-        "DisplayName": "УРОН"
+        "DisplayName": "УРОН",
       },
       {
         "Name": "PartialDesruction",
-        "DisplayName": "ЧАСТИЧНОЕ РАЗРУШЕНИЕ"
+        "DisplayName": "ЧАСТИЧНОЕ РАЗРУШЕНИЕ",
       },
       {
         "Name": "LoosenBlocks",
-        "DisplayName": "ОСЛАБИТЬ БЛОКИ"
+        "DisplayName": "ОСЛАБИТЬ БЛОКИ",
       },
       {
         "Name": "RedTeam",
