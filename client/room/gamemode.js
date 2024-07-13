@@ -28,13 +28,10 @@ Build.GetContext().ChangeMapAuthorsEnable.Value = true;
 Build.GetContext().LoadMapEnable.Value = true;
 Build.GetContext().ChangeSpawnsEnable.Value = true;
 // Создаём, команды
-    var hasRedTeam = Parameters.GetBool("RedTeam");
-    var hasBlueTeam = Parameters.GetBool("BlueTeam");
-    if (hasRedTeam || !hasRedTeam && !hasBlueTeam) {
-        teams.create_team_red();
-    }
-    if (hasBlueTeam || !hasRedTeam && !hasBlueTeam) {
-        var blueTeam = teams.create_team_blue();
+var red = GameMode.Parameters.GetBool("RedTeam");
+var blue = GameMode.Parameters.GetBool("BlueTeam");
+if (red || !red && !blue) teams.create_team_red();
+if (blue || !red && !blue) teams.create_team_blue();
 	if(GameMode.Parameters.GetBool("BlueHasNothing")){
 		var Inventory = Inventory.GetContext();
 		Teams.Get("Blue").Inventory.Main.Value = false;
