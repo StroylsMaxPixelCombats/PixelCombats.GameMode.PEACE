@@ -1,5 +1,5 @@
 //var System = importNamespace('System');
-import { Damage, BreackGraph, Build, Ui, Teams, Inventory, Spawns, GameMode, BuildBlocksSet } from 'pixel_combats/room';
+import { Damage, BreackGraph, Build, Ui, Teams, Inventory, Spawns, GameMode, BuildBlocksSet, Properties } from 'pixel_combats/room';
 import * as teams from './default_teams.js';
 
 // Настройки, опции 
@@ -28,6 +28,9 @@ Build.GetContext().RenameMapEnable.Value = true;
 Build.GetContext().ChangeMapAuthorsEnable.Value = true;
 Build.GetContext().LoadMapEnable.Value = true;
 Build.GetContext().ChangeSpawnsEnable.Value = true;
+
+// Игровое, состояние
+Properties.GetContext().GameModeName.Value = "GameModes/Peace";
 // Создаём, команды
 var red = GameMode.Parameters.GetBool("RedTeam");
 var blue = GameMode.Parameters.GetBool("BlueTeam");
