@@ -13,24 +13,24 @@
     "Bool": [
       {
         "Name": "Damage",
-        "DisplayName": "УРОН",
+        "DisplayName": "УРОН"
       },
       {
         "Name": "PartialDesruction",
-        "DisplayName": "",
+        "DisplayName": "ЧАСТИЧНОЕ РАЗРУШЕНИЕ"
       },
       {
         "Name": "LoosenBlocks",
-        "DisplayName": "",
+        "DisplayName": "СЛАБЫЕ БЛОКИ"
       },
       {
         "Name": "RedTeam",
-        "DisplayName": "КОМАНДА КРАСНАЯ",
+        "DisplayName": "КОМАНДА КРАСНАЯ"
         "Default": true
       },
       {
         "Name": "BlueTeam",
-        "DisplayName": "КОМАНДА СИНИЯ",
+        "DisplayName": "КОМАНДА СИНИЯ"
         "Default": true
       },
       {
@@ -51,7 +51,7 @@
       },
       {
         "Name": "Fly",
-        "DisplayName": "ПАЛЁТ",
+        "DisplayName": "ПАЛЁТ"
         "Default": true
       }
     ]
