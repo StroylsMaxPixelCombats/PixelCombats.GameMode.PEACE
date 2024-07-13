@@ -1,4 +1,4 @@
-// Библиотека, созданная как для команд для МИР
+// Библиотека, созданная как для команд МИР
 
 import { Color } from 'pixel_combats/basic';
 import { Teams } from 'pixel_combats/room';
