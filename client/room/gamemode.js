@@ -34,7 +34,7 @@ Build.GetContext().ChangeSpawnsEnable.Value = true;
         teams.create_team_red();
     }
     if (hasBlueTeam || !hasRedTeam && !hasBlueTeam) {
-        const blueTeam = teams.create_team_blue();
+        var blueTeam = teams.create_team_blue();
 	if(GameMode.Parameters.GetBool("BlueHasNothing")){
 		var Inventory = Inventory.GetContext();
 		Teams.Get("Blue").Inventory.Main.Value = false;
