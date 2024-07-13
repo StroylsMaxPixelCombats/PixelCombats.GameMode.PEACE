@@ -1,5 +1,5 @@
 //var System = importNamespace('System');
-import { Damage, BreackGraph, Build, Ui, Teams, Inventory, Spawns, GameMode, BuildBlocksSet, Properties } from 'pixel_combats/room';
+import * as room from 'pixel_combats/room';
 import * as teams from './default_teams.js';
 
 // Настройки, опции 
