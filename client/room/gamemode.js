@@ -50,7 +50,7 @@ Teams.OnRequestJoinTeam.Add(function(player,team){team.Add(player);});
 Teams.OnPlayerChangeTeam.Add(function(player){ player.Spawns.Spawn()});
 
 // Задаём, подсказку 
-Ui.GetContext().Hint.Value = "!Мирный режим!";
+Ui.GetContext().Hint.Value = "!Мирный, режим!";
 
 // Конфигурация, инвентаря
 var Inventory = Inventory.GetContext();
