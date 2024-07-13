@@ -1,5 +1,4 @@
 //var System = importNamespace('System');
-import { Color } from 'pixel_combats/basic';
 import { Damage, BreackGraph, Build, Ui, Teams, Inventory, Spawns, GameMode } from 'pixel_combats/room';
 
 // Настройки, опции 
@@ -29,15 +28,13 @@ Build.GetContext().ChangeMapAuthorsEnable.Value = true;
 Build.GetContext().LoadMapEnable.Value = true;
 Build.GetContext().ChangeSpawnsEnable.Value = true;
 // Создаём, команды
-red = GameMode.Parameters.GetBool("RedTeam");
-blue = GameMode.Parameters.GetBool("BlueTeam");
-if (red || !red && !blue) {
-	Teams.Add("Red", "Teams/Red", new Color(1, 0, 0, 0));
-	Teams.Get("Red").Spawns.SpawnPointsGroups.Add(2);
-}
-if (blue || !red && !blue) {
-	Teams.Add("Blue", "Teams/Blue", new Color(0, 0, 1, 0));
-	Teams.Get("Blue").Spawns.SpawnPointsGroups.Add(1);
+    var hasRedTeam = Parameters.GetBool("RedTeam");
+    var hasBlueTeam = Parameters.GetBool("BlueTeam");
+    if (hasRedTeam || !hasRedTeam && !hasBlueTeam) {
+        teams.create_team_red();
+    }
+    if (hasBlueTeam || !hasRedTeam && !hasBlueTeam) {
+        const blueTeam = teams.create_team_blue();
 	if(GameMode.Parameters.GetBool("BlueHasNothing")){
 		var Inventory = Inventory.GetContext();
 		Teams.Get("Blue").Inventory.Main.Value = false;
