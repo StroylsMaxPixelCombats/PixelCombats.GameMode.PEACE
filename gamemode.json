@@ -25,12 +25,12 @@
       },
       {
         "Name": "RedTeam",
-        "DisplayName": "КОМАНДА КРАСНАЯ"
+        "DisplayName": "КОМАНДА КРАСНАЯ",
         "Default": true
       },
       {
         "Name": "BlueTeam",
-        "DisplayName": "КОМАНДА СИНИЯ"
+        "DisplayName": "КОМАНДА СИНИЯ",
         "Default": true
       },
       {
@@ -51,7 +51,7 @@
       },
       {
         "Name": "Fly",
-        "DisplayName": "ПАЛЁТ"
+        "DisplayName": "ПАЛЁТ",
         "Default": true
       }
     ]
