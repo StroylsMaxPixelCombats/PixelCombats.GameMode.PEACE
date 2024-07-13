@@ -1,5 +1,6 @@
 //var System = importNamespace('System');
 import { Damage, BreackGraph, Build, Ui, Teams, Inventory, Spawns, GameMode, BuildBlocksSet } from 'pixel_combats/room';
+import * as teams from './default_teams.js';
 
 // Настройки, опции 
 Damage.GetContext().DamageOut.Value = GameMode.Parameters.GetBool("Damage");
