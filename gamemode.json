@@ -13,7 +13,7 @@
     "Bool": [
       {
         "Name": "Damage",
-        "DisplayName": "<b>УРОН",
+        "DisplayName": "УРОН",
       },
       {
         "Name": "PartialDesruction",
