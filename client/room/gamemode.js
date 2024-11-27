@@ -45,13 +45,14 @@ RedTeam.Get("Red").Spawns.SpawnPointsGroups.Add(2);
 // Настройки:
 if (GameMode.Parameters.getBool("BlueHasNothing")) {
  var inventory = Inventory.getContext();
- Teams.Get("BlueTeam").Inventory.Main.Value = false;
- Teams.Get("BlueTeam").Inventory.Secondary.Value = false;
- Teams.Get("BlueTeam").Inventory.Melee.Value = false;
- Teams.Get("BlueTeam").Inventory.Explosive.Value = false; 
- Teams.Get("BlueTeam").Inventory.Build.Value = false;
+ Teams.Get("BlueTeam").inventory.Main.Value = false;
+ Teams.Get("BlueTeam").inventory.Secondary.Value = false;
+ Teams.Get("BlueTeam").inventory.Melee.Value = false;
+ Teams.Get("BlueTeam").inventory.Explosive.Value = false; 
+ Teams.Get("BlueTeam").inventory.Build.Value = false;
 }
-
+RedTeam = GameMode.Parameters.GetBool("RedTeam");
+BlueTeam = GameMode.Parameters.GetBool("BlueTeam");
 // Разрешаем, вход в команды - по запросу:
 Teams.OnRequestJoinTeam.Add(function(Player,Team){Team.Add(Player);});
 // Разрешаем, спавн - по входу в, команду:
