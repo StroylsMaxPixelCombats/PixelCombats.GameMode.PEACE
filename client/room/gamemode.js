@@ -1,6 +1,71 @@
-import * as peace from './peace_library.js';
+import { DisplayValueHeader, Color } from 'pixel_combats/basic';
+import { Inventory, BreackGraph, Damage, Teams, Ui, Build, Spawns, GameMode } from 'pixel_combats/room';
 
-peace.configure();
-peace.create_teams();
+// Применяем - параметры, создания комнаты: 
+Damage.GetContext().DamageOut.Value = GameMode.Parameters.GetBool("Damage");
+BreackGraph.OnlyPlayerBlocksDmg = GameMode.Parameters.GetBool("PartialDesruction");
+BreackGraph.WeakBlocks = GameMode.Parameters.GetBool("LoosenBlocks");
+Build.GetContext().FloodFill.Value = GameMode.Parameters.GetBool("FloodFill");
+Build.GetContext().FillQuad.Value = GameMode.Parameters.GetBool("FillQuad");
+Build.GetContext().RemoveQuad.Value = GameMode.Parameters.GetBool("RemoveQuad");
+Build.GetContext().FlyEnable.Value = GameMode.Parameters.GetBool("Fly");
 
-// Комната, созданная как для МИР
+// Делаем возможно - ломать все блоки:
+BreackGraph.BreackAll = true;
+// Показываем, количество - квадов:
+Ui.GetContext().QuadsCount.Value = true;
+// опции, игрового режима:
+Build.GetContext().Pipette.Value = true;
+Build.GetContext().BalkLenChange.Value = true;
+Build.GetContext().SetSkyEnable.Value = true;
+Build.GetContext().GenMapEnable.Value = true;
+Build.GetContext().ChangeCameraPointsEnable.Value = true;
+Build.GetContext().QuadChangeEnable.Value = true;
+Build.GetContext().BuildModeEnable.Value = true;
+Build.GetContext().CollapseChangeEnable.Value = true;
+Build.GetContext().RenameMapEnable.Value = true;
+Build.GetContext().ChangeMapAuthorsEnable.Value = true;
+Build.GetContext().LoadMapEnable.Value = true;
+Build.GetContext().ChangeSpawnsEnable.Value = true;
+
+// Параметры, игры:
+Properties.GetContext().GameModeName.Value = "GameModes/Peace";
+// Стандартные - команды:
+RedTeam = GameMode.Parameters.GetBool("RedTeam");
+BlueTeam = GameMode.Parameters.GetBool("BlueTeam");
+	Teams.Add("Red", "Teams/Red", new Color(1, 0, 0, 0));
+  var RedTeam = Teams.Get("Red");
+  RedTeam.Build.BlocksSet.Value = BuildBlocksSet.AllClear;
+	RedTeam.Get("Red").Spawns.SpawnPointsGroups.Add(1);
+  BlueTeam.Get("Blue").Spawns.SpawnPointsGroups.Add(2);
+  BlueTeam.Build.BlocksSet.Value = BuildBlocksSet.AllClear;
+  var BlueTeam = Teams.Get("Blue");
+	Teams.Add("Blue", "Teams/Blue", new Color(1, 0, 0, 0));
+	if (GameMode.Parameters.GetBool("BlueHasNothing")) {
+		var inventory = Inventory.GetContext();
+		Teams.Get("BlueTeam").inventory.Main.Value = false;
+		Teams.Get("BlueTeam").inventory.Secondary.Value = false;
+		Teams.Get("BlueTeam").inventory.Melee.Value = false;
+		Teams.Get("BlueTeam").inventory.Explosive.Value = false;
+		Teams.Get("BlueTeam").inventory.Build.Value = false;
+  }
+}
+// Разрешаем, вход в команды - по запросу:
+Teams.OnRequestJoinTeam.Add(function(Player,Team){Team.Add(Player);});
+// Разрешаем, спавн - по входу в, команду:
+Teams.OnPlayerChangeTeam.Add(function(Player){ Player.Spawns.Spawn()});
+
+// Задаём, подсказку - игроку:
+Ui.GetContext().Hint.Value = "Hint/BuildBase";
+
+// Конфигурация - инвентаря:
+var inventory = Inventory.GetContext();
+inventory.Main.Value = false;
+inventory.Secondary.Value = false;
+inventory.Melee.Value = true;
+inventory.Explosive.Value = false;
+inventory.Build.Value = true;
+inventory.BuildInfinity.Value = true;
+
+// Моментальный - спавн:
+Spawns.GetContext().RespawnTime.Value = 0;
