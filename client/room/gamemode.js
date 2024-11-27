@@ -48,12 +48,10 @@ if (GameMode.Parameters.GetBool("BlueHasNothing")) {
  Teams.Get("BlueTeam").inventory.Explosive.Value = false; 
  Teams.Get("BlueTeam").inventory.Build.Value = false;
 }
-if (GameMode.Parameters.GetBool("BlueTeam)) {
- Teams.Add("Blue", "Teams/Blue", new Color(1, 0, 0, 0));
- var BlueTeam = Teams.Get("Blue");
-} 
 if (GameMode.Parameters.GetBool("BlueTeam")) {
- Teams.Add("Red", "Teams/Red", new Color(1, 0, 0, 0));
+ var BlueTeam = Teams.Get("Blue");
+}
+if (GameMode.Parameters.GetBool("BlueTeam")) {
  var RedTeam = Teams.Get("Red");
 }
 // Разрешаем, вход в команды - по запросу:
