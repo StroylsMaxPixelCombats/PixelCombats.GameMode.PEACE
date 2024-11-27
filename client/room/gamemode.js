@@ -13,7 +13,7 @@ Build.GetContext().FlyEnable.Value = GameMode.Parameters.GetBool("Fly");
 // Делаем возможно - ломать все блоки:
 BreackGraph.BreackAll = true;
 // Показываем, количество - квадов:
-Ui.GetContext().QuadsCount.Value = true;
+Ui.getContext().QuadsCount.Value = true;
 // опции, игрового режима:
 Build.GetContext().Pipette.Value = true;
 Build.GetContext().FloodFill.Value = true;
