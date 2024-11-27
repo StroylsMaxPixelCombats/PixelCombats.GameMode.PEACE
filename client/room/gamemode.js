@@ -15,18 +15,30 @@ BreackGraph.BreackAll = true;
 // Показываем, количество - квадов:
 Ui.GetContext().QuadsCount.Value = true;
 // опции, игрового режима:
-Build.GetContext().Pipette.Value = true;
-Build.GetContext().BalkLenChange.Value = true;
-Build.GetContext().SetSkyEnable.Value = true;
-Build.GetContext().GenMapEnable.Value = true;
-Build.GetContext().ChangeCameraPointsEnable.Value = true;
-Build.GetContext().QuadChangeEnable.Value = true;
-Build.GetContext().BuildModeEnable.Value = true;
-Build.GetContext().CollapseChangeEnable.Value = true;
-Build.GetContext().RenameMapEnable.Value = true;
-Build.GetContext().ChangeMapAuthorsEnable.Value = true;
-Build.GetContext().LoadMapEnable.Value = true;
-Build.GetContext().ChangeSpawnsEnable.Value = true;
+BlueTeam.GetContext().Pipette.Value = true;
+RedTeam.GetContext().Pipette.Value = true;
+BlueTeam.GetContext().BalkLenChange.Value = true;
+RedTeam.GetContext().BalkLenChange.Value = true;
+BlueTeam.GetContext().SetSkyEnable.Value = true;
+RedTeam.GetContext().SetSkyEnable.Value = true;
+BlueTeam.GetContext().GenMapEnable.Value = true;
+RedTeam.GetContext().GenMapEnable.Value = true;
+BlueTeam.GetContext().ChangeCameraPointsEnable.Value = true;
+RedTeam.GetContext().ChangeCameraPointsEnable.Value = true;
+BlueTeam.GetContext().QuadChangeEnable.Value = true;
+RedTeam.GetContext().QuadChangeEnable.Value = true;
+BlueTeam.GetContext().BuildModeEnable.Value = true;
+RedTeam.GetContext().BuildModeEnable.Value = true;
+BlueTeam.GetContext().CollapseChangeEnable.Value = true;
+RedTeam.GetContext().CollapseChangeEnable.Value = true;
+BlueTeam.GetContext().RenameMapEnable.Value = true;
+RedTeam.GetContext().RenameMapEnable.Value = true;
+BlueTeam.GetContext().ChangeMapAuthorsEnable.Value = true;
+RedTeam.GetContext().ChangeMapAuthorsEnable.Value = true;
+BlueTeam.GetContext().LoadMapEnable.Value = true;
+RedTeam.GetContext().LoadMapEnable.Value = true;
+BlueTeam.GetContext().ChangeSpawnsEnable.Value = true;
+RedTeam.GetContext().ChangeSpawnsEnable.Value = true;
 
 // Параметры, игры:
 Properties.GetContext().GameModeName.Value = "GameModes/Peace";
