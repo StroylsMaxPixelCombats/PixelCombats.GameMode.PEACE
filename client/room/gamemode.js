@@ -31,24 +31,30 @@ Build.GetContext().ChangeSpawnsEnable.Value = true;
 // Параметры, игры:
 Properties.GetContext().GameModeName.Value = "GameModes/Peace";
 // Стандартные - команды:
-RedTeam = GameMode.Parameters.GetBool("RedTeam");
-BlueTeam = GameMode.Parameters.GetBool("BlueTeam");
-	Teams.Add("Red", "Teams/Red", new Color(1, 0, 0, 0));
-  var RedTeam = Teams.Get("Red");
-  RedTeam.Build.BlocksSet.Value = BuildBlocksSet.AllClear;
-	RedTeam.Get("Red").Spawns.SpawnPointsGroups.Add(1);
-  BlueTeam.Get("Blue").Spawns.SpawnPointsGroups.Add(2);
-  BlueTeam.Build.BlocksSet.Value = BuildBlocksSet.AllClear;
-  var BlueTeam = Teams.Get("Blue");
-	Teams.Add("Blue", "Teams/Blue", new Color(1, 0, 0, 0));
-	if (GameMode.Parameters.GetBool("BlueHasNothing")) {
-		var inventory = Inventory.GetContext();
-		Teams.Get("BlueTeam").inventory.Main.Value = false;
-		Teams.Get("BlueTeam").inventory.Secondary.Value = false;
-		Teams.Get("BlueTeam").inventory.Melee.Value = false;
-		Teams.Get("BlueTeam").inventory.Explosive.Value = false;
-		Teams.Get("BlueTeam").inventory.Build.Value = false;
-  }
+Teams.Add("Blue", "Teams/Blue", new Color(1, 0, 0, 0));
+Teams.Add("Red", "Teams/Red", new Color(1, 0, 0, 0));
+var BlueTeam = Teams.Get("Blue");
+var RedTeam = Teams.Get("Red");
+BlueTeam.Get("Blue").Spawns.SpawnPointsGroups.Add(1);
+RedTeam.Get("Red").Spawns.SpawnPointsGroups.Add(2);
+BlueTeam.Build.BlocksSet.Value = BuildBlocksSet.AllClear;
+RedTeam.Build.BlocksSet.Value = BuildBlocksSet.AllClear;
+// Настройки:
+if (GameMode.Parameters.GetBool("BlueHasNothing")) {
+ var inventory = Inventory.GetContext();
+ Teams.Get("BlueTeam").inventory.Main.Value = false;
+ Teams.Get("BlueTeam").inventory.Secondary.Value = false;
+ Teams.Get("BlueTeam").inventory.Melee.Value = false;
+ Teams.Get("BlueTeam").inventory.Explosive.Value = false; 
+ Teams.Get("BlueTeam").inventory.Build.Value = false;
+}
+if (GameMode.Parameters.GetBool("BlueTeam)) {
+ Teams.Add("Blue", "Teams/Blue", new Color(1, 0, 0, 0));
+ var BlueTeam = Teams.Get("Blue");
+} 
+if (GameMode.Parameters.GetBool("BlueTeam")) {
+ Teams.Add("Red", "Teams/Red", new Color(1, 0, 0, 0));
+ var RedTeam = Teams.Get("Red");
 }
 // Разрешаем, вход в команды - по запросу:
 Teams.OnRequestJoinTeam.Add(function(Player,Team){Team.Add(Player);});
