@@ -2,7 +2,6 @@
   "Name": "МИР <i>(API 1.0)</i>",
   "Description": "Мирный режим",
   "StartClientVersion": 532,
-  "ApiVersion": 1,
   "MapLists": [
     {
       "MapListId": 324,
