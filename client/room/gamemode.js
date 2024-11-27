@@ -34,7 +34,7 @@ Build.GetContext().ChangeSpawnsEnable.Value = true;
 Build.GetContext().BuildRangeEnable.Value = true;
 
 // Параметры, игры:
-Properties.getContext().GameModeName.Value = "GameModes/Peace";
+Properties.GetContext().GameModeName.Value = "GameModes/Peace";
 // Стандартные - команды:
 Teams.Add("Blue", "Teams/Blue", new Color(0, 0, 1, 0));
 Teams.Add("Red", "Teams/Red", new Color(1, 0, 0, 0));
@@ -51,13 +51,14 @@ if (GameMode.Parameters.getBool("BlueHasNothing")) {
  Teams.Get("BlueTeam").inventory.Explosive.Value = false; 
  Teams.Get("BlueTeam").inventory.Build.Value = false;
 }
+
 // Разрешаем, вход в команды - по запросу:
 Teams.OnRequestJoinTeam.Add(function(Player,Team){Team.Add(Player);});
 // Разрешаем, спавн - по входу в, команду:
 Teams.OnPlayerChangeTeam.Add(function(Player){ Player.Spawns.Spawn()});
 
 // Задаём, подсказку - игроку:
-Ui.GetContext().Hint.Value = "Hint/BuildBase";
+Ui.GetContext().Hint.Value = "BuildBase";
 
 // Конфигурация - инвентаря:
 var inventory = Inventory.getContext();
