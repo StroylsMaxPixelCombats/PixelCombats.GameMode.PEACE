@@ -15,23 +15,23 @@ BreackGraph.BreackAll = true;
 // Показываем, количество - квадов:
 Ui.getContext().QuadsCount.Value = true;
 // опции, игрового режима:
-Build.GetContext().Pipette.Value = true;
-Build.GetContext().FloodFill.Value = true;
-Build.GetContext().FillQuad.Value = true;
-Build.GetContext().RemoveQuad.Value = true;
-Build.GetContext().BalkLenChange.Value = true;
-Build.GetContext().FlyEnable.Value = true;
-Build.GetContext().SetSkyEnable.Value = true;
-Build.GetContext().GenMapEnable.Value = true;
-Build.GetContext().ChangeCameraPointsEnable.Value = true;
-Build.GetContext().QuadChangeEnable.Value = true;
-Build.GetContext().BuildModeEnable.Value = true;
-Build.GetContext().CollapseChangeEnable.Value = true;
-Build.GetContext().RenameMapEnable.Value = true;
-Build.GetContext().ChangeMapAuthorsEnable.Value = true;
-Build.GetContext().LoadMapEnable.Value = true;
-Build.GetContext().ChangeSpawnsEnable.Value = true;
-Build.GetContext().BuildRangeEnable.Value = true;
+Build.getContext().Pipette.Value = true;
+Build.getContext().FloodFill.Value = true;
+Build.getContext().FillQuad.Value = true;
+Build.getContext().RemoveQuad.Value = true;
+Build.getContext().BalkLenChange.Value = true;
+Build.getContext().FlyEnable.Value = true;
+Build.getContext().SetSkyEnable.Value = true;
+Build.getContext().GenMapEnable.Value = true;
+Build.getContext().ChangeCameraPointsEnable.Value = true;
+Build.getContext().QuadChangeEnable.Value = true;
+Build.getContext().BuildModeEnable.Value = true;
+Build.getContext().CollapseChangeEnable.Value = true;
+Build.getContext().RenameMapEnable.Value = true;
+Build.getContext().ChangeMapAuthorsEnable.Value = true;
+Build.getContext().LoadMapEnable.Value = true;
+Build.getContext().ChangeSpawnsEnable.Value = true;
+Build.getContext().BuildRangeEnable.Value = true;
 
 // Параметры, игры:
 Properties.GetContext().GameModeName.Value = "GameModes/Peace";
