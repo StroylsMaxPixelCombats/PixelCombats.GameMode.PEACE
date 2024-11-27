@@ -31,7 +31,7 @@ Build.GetContext().ChangeSpawnsEnable.Value = true;
 // Параметры, игры:
 Properties.GetContext().GameModeName.Value = "GameModes/Peace";
 // Стандартные - команды:
-Teams.Add("Blue", "Teams/Blue", new Color(1, 0, 0, 0));
+Teams.Add("Blue", "Teams/Blue", new Color(0, 0, 1, 0));
 Teams.Add("Red", "Teams/Red", new Color(1, 0, 0, 0));
 var BlueTeam = Teams.Get("Blue");
 var RedTeam = Teams.Get("Red");
