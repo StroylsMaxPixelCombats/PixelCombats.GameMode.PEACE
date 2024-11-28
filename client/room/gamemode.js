@@ -36,12 +36,8 @@ Build.GetContext().BuildRangeEnable.Value = true;
 // Параметры, игры:
 Properties.GetContext().GameModeName.Value = "GameModes/Peace";
 // Стандартные - команды:
- if (GameMode.Paraneters.GetBool("BlueTeam")) { 
-Teams.Add("Blue", "Teams/Blue", new Color(0, 0, 1, 0));
-} 
- if (GameMode.Parameters.GetBool("RedTeam")) {
-Teams.Add("Red", "Teams/Red", new Color(1, 0, 0, 0));
- }
+Teams.Add("Blue", "Teams/BlueTeam", new Color(0, 0, 1, 0));
+Teams.Add("Red", "Teams/RedTeam", new Color(1, 0, 0, 0));
 var BlueTeam = Teams.Get("Blue");
 var RedTeam = Teams.Get("Red");
 BlueTeam.Get("Blue").Spawns.SpawnPointsGroups.Add(1);
