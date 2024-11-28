@@ -45,15 +45,13 @@ Build.GetContext().BuildRangeEnable.Value = true;
 
 // Настройки:
 if (GameMode.Parameters.GetBool("BlueHasNothing")) {
- var Inventory = Inventory.GetContext();
+ var inventory = Inventory.GetContext();
  Teams.Get("BlueTeam").Inventory.Main.Value = false;
  Teams.Get("BlueTeam").Inventory.Secondary.Value = false;
  Teams.Get("BlueTeam").Inventory.Melee.Value = false;
  Teams.Get("BlueTeam").Inventory.Explosive.Value = false; 
  Teams.Get("BlueTeam").Inventory.Build.Value = false;
 }
-BlueTeam = GameMode.Parameters.GetBool("BlueTeam");
-RedTeam = GameMode.Parameters.GetBool("RedTeam");
 // Разрешаем, вход в команды - по запросу:
 Teams.OnRequestJoinTeam.Add(function(Player,Team){Team.Add(Player);});
 // Разрешаем, спавн - по входу в, команду:
@@ -63,13 +61,13 @@ Teams.OnPlayerChangeTeam.Add(function(Player){ Player.Spawns.Spawn()});
 Ui.GetContext().Hint.Value = "BuildBase";
 
 // Конфигурация - инвентаря:
-var Inventory = Inventory.GetContext();
-Inventory.Main.Value = false;
-Inventory.Secondary.Value = false;
-Inventory.Melee.Value = true;
-Inventory.Explosive.Value = false;
-Inventory.Build.Value = true;
-Inventory.BuildInfinity.Value = true;
+var inventory = Inventory.GetContext();
+inventory.Main.Value = false;
+inventory.Secondary.Value = false;
+inventory.Melee.Value = true;
+inventory.Explosive.Value = false;
+inventory.Build.Value = true;
+inventory.BuildInfinity.Value = true;
 
 // Моментальный - спавн:
 Spawns.GetContext().RespawnTime.Value = 0;
