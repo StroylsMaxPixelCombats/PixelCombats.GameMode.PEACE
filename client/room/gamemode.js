@@ -1,5 +1,5 @@
 import { DisplayValueHeader, Color } from 'pixel_combats/basic';
-import { Inventory, BreackGraph, Properties, Damage, Teams, Ui, Build, Spawns, GameMode } from 'pixel_combats/room';
+import { Inventory, BreackGraph, Properties, BuildBlocksSet, Damage, Teams, Ui, Build, Spawns, GameMode } from 'pixel_combats/room';
 
 // Применяем - параметры, создания комнаты: 
 Damage.GetContext().DamageOut.Value = GameMode.Parameters.GetBool("Damage");
