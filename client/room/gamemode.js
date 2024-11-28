@@ -53,9 +53,9 @@ if (GameMode.Parameters.GetBool("BlueHasNothing")) {
  Teams.Get("BlueTeam").inventory.Build.Value = false;
 }
 // Разрешаем, вход в команды - по запросу:
-Teams.OnRequestJoinTeam.Add(function(Player, Team){Team.Add(Player);});
+Teams.OnRequestJoinTeam.Add(function(Player, Team) { Team.Add(Player); });
 // Разрешаем, спавн - по входу в, команду:
-Teams.OnPlayerChangeTeam.Add(function(Player){ Player.Spawns.Spawn()});
+Teams.OnPlayerChangeTeam.Add(function(Player) { Player.Spawns.Spawn(); });
 
 // Задаём, подсказку - игроку:
 Ui.GetContext().Hint.Value = "BuildBase";
