@@ -10,6 +10,16 @@ Build.GetContext().FillQuad.Value = GameMode.Parameters.GetBool("FillQuad");
 Build.GetContext().RemoveQuad.Value = GameMode.Parameters.GetBool("RemoveQuad");
 Build.GetContext().FlyEnable.Value = GameMode.Parameters.GetBool("Fly");
 
+// Параметры, игры:
+Properties.GetContext().GameModeName.Value = "GameModes/Peace";
+// Стандартные - команды:
+Teams.Add("Blue", "Teams/Blue", new Color(0, 0, 1, 0));
+Teams.Add("Red", "Teams/Red", new Color(1, 0, 0, 0));
+var BlueTeam = Teams.Get("Blue");
+var RedTeam = Teams.Get("Red");
+BlueTeam.Get("Blue").Spawns.SpawnPointsGroups.Add(1);
+RedTeam.Get("Red").Spawns.SpawnPointsGroups.Add(2);
+
 // Делаем возможно - ломать все блоки:
 BreackGraph.BreackAll = true;
 // Показываем, количество - квадов:
@@ -33,24 +43,17 @@ Build.GetContext().LoadMapEnable.Value = true;
 Build.GetContext().ChangeSpawnsEnable.Value = true;
 Build.GetContext().BuildRangeEnable.Value = true;
 
-// Параметры, игры:
-Properties.GetContext().GameModeName.Value = "GameModes/Peace";
-// Стандартные - команды:
-Teams.Add("Blue", "Teams/Blue", new Color(0, 0, 1, 0));
-Teams.Add("Red", "Teams/Red", new Color(1, 0, 0, 0));
-var BlueTeam = Teams.Get("Blue");
-var RedTeam = Teams.Get("Red");
-BlueTeam.Get("Blue").Spawns.SpawnPointsGroups.Add(1);
-RedTeam.Get("Red").Spawns.SpawnPointsGroups.Add(2);
 // Настройки:
-if (GameMode.Parameters.getBool("BlueHasNothing")) {
- var inventory = Inventory.getContext();
- Teams.Get("BlueTeam").inventory.Main.Value = false;
- Teams.Get("BlueTeam").inventory.Secondary.Value = false;
- Teams.Get("BlueTeam").inventory.Melee.Value = false;
- Teams.Get("BlueTeam").inventory.Explosive.Value = false; 
- Teams.Get("BlueTeam").inventory.Build.Value = false;
+if (GameMode.Parameters.GetBool("BlueHasNothing")) {
+ var Inventory = Inventory.GetContext();
+ Teams.Get("BlueTeam").Inventory.Main.Value = false;
+ Teams.Get("BlueTeam").Inventory.Secondary.Value = false;
+ Teams.Get("BlueTeam").Inventory.Melee.Value = false;
+ Teams.Get("BlueTeam").Inventory.Explosive.Value = false; 
+ Teams.Get("BlueTeam").Inventory.Build.Value = false;
 }
+BlueTeam = GameMode.Parameters.GetBool("BlueTeam");
+RedTeam = GameMode.Parameters.GetBool("RedTeam");
 // Разрешаем, вход в команды - по запросу:
 Teams.OnRequestJoinTeam.Add(function(Player,Team){Team.Add(Player);});
 // Разрешаем, спавн - по входу в, команду:
@@ -60,13 +63,13 @@ Teams.OnPlayerChangeTeam.Add(function(Player){ Player.Spawns.Spawn()});
 Ui.GetContext().Hint.Value = "BuildBase";
 
 // Конфигурация - инвентаря:
-var inventory = Inventory.getContext();
-inventory.Main.Value = false;
-inventory.Secondary.Value = false;
-inventory.Melee.Value = true;
-inventory.Explosive.Value = false;
-inventory.Build.Value = true;
-inventory.BuildInfinity.Value = true;
+var Inventory = Inventory.GetContext();
+Inventory.Main.Value = false;
+Inventory.Secondary.Value = false;
+Inventory.Melee.Value = true;
+Inventory.Explosive.Value = false;
+Inventory.Build.Value = true;
+Inventory.BuildInfinity.Value = true;
 
 // Моментальный - спавн:
 Spawns.GetContext().RespawnTime.Value = 0;
