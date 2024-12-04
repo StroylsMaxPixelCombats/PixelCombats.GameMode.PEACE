@@ -1,6 +1,8 @@
 import { Color } from 'pixel_combats/basic';
 import { Inventory, BreackGraph, BuildBlocksSet, Damage, Teams, Ui, Build, Spawns, GameMode } from 'pixel_combats/room';
 
+try {
+ 
 // Применяем - параметры, создания комнаты: 
 Damage.GetContext().DamageOut.Value = GameMode.Parameters.GetBool("Damage");
 BreackGraph.OnlyPlayerBlocksDmg = GameMode.Parameters.GetBool("PartialDesruction");
@@ -74,3 +76,10 @@ Spawns.GetContext().RespawnTime.Value = 0;
 
 // Разрешаем, игрокам - чистые блоки:
 Build.BlocksSet.Value = BuildBlocksSet.AllClear;
+
+
+  } catch (e) {
+            Players.All.forEach(p => {
+                p.PopUp(`${e.name}: ${e.message} ${e.stack}`);
+        });
+}
