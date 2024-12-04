@@ -72,10 +72,6 @@ inventory.BuildInfinity.Value = true;
 // Моментальный - спавн:
 Spawns.GetContext().RespawnTime.Value = 0;
 
-// Разрешаем, игрокам - чистые блоки:
-Build.BlocksSet.Value = BuildBlocksSet.AllClear;
-
-
   } catch (e) {
             Players.All.forEach(p => {
                 p.PopUp(`${e.name}: ${e.message} ${e.stack}`);
