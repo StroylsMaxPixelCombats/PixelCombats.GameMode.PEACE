@@ -1,5 +1,5 @@
 import { Color } from 'pixel_combats/basic';
-import { Inventory, BreackGraph, BuildBlocksSet, Damage, Teams, Ui, Build, Spawns, GameMode } from 'pixel_combats/room';
+import { Players, Inventory, BreackGraph, BuildBlocksSet, Damage, Teams, Ui, Build, Spawns, GameMode } from 'pixel_combats/room';
 
 try {
  
