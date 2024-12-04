@@ -45,11 +45,11 @@ Build.GetContext().ChangeSpawnsEnable.Value = true;
 // Настройки:
 if (GameMode.Parameters.GetBool("BlueHasNothing")) {
  var inventory = Inventory.GetContext();
- BlueTeam.inventory.Main.Value = false;
- BlueTeam.inventory.Secondary.Value = false;
- BlueTeam.inventory.Melee.Value = false;
- BlueTeam.inventory.Explosive.Value = false; 
- BlueTeam.inventory.Build.Value = false;
+ BlueTeam.GetContext().inventory.Main.Value = false;
+ BlueTeam.GetContext().inventory.Secondary.Value = false;
+ BlueTeam.GetContext().inventory.Melee.Value = false;
+ BlueTeam.GetContext().inventory.Explosive.Value = false; 
+ BlueTeam.GetContext().inventory.Build.Value = false;
 }
 // Разрешаем, вход в команды - по запросу:
 Teams.OnRequestJoinTeam.Add(function(Player, Team) { Team.Add(Player); });
