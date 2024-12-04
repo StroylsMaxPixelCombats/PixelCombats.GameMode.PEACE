@@ -14,6 +14,8 @@ Build.GetContext().FlyEnable.Value = GameMode.Parameters.GetBool("Fly");
 
 // Параметр, игры:
 Ui.GetContext().Hint.Value = "!Стройте!";
+var BlueTeam = GameMode.Parameters.GetBool("BlueTeam");
+var RedTeam = GameMode.Parameters.GetBool("RedTeam");
 // Стандартные - команды:
 Teams.Add("Blue", "Teams/Blue", new Color(0, 0, 1, 0));
 Teams.Add("Red", "Teams/Red", new Color(1, 0, 0, 0));
