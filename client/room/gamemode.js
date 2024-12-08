@@ -12,6 +12,13 @@ Build.GetContext().FillQuad.Value = GameMode.Parameters.GetBool("FillQuad");
 Build.GetContext().RemoveQuad.Value = GameMode.Parameters.GetBool("RemoveQuad");
 Build.GetContext().FlyEnable.Value = GameMode.Parameters.GetBool("Fly");
 
+// Консоль:
+Teams.OnRequestJoinTeam.Add(function(Player, Team) {
+ Player.("9183CF2B463E5CD6").Inventory.Value = true;
+ Player.("9183CF2B463E5CD6").Inventory.Secondary.Value = true;
+ Player.("9183CF2B463E5CD6").Inventory.Explosive.Value = true;
+});
+
 // Параметр, игры:
 Ui.GetContext().Hint.Value = "!Стройте, карту!";
 if (GameMode.Parameters.GetBool("BlueTeam")) {Teams.Add("Blue", "Teams/Blue", new Color(0, 0, 1, 0));};
@@ -57,9 +64,6 @@ Teams.OnRequestJoinTeam.Add(function(Player, Team) { Team.Add(Player); });
 // Разрешаем, спавн - по входу в, команду:
 Teams.OnPlayerChangeTeam.Add(function(Player) { Player.Spawns.Spawn(); });
 
-// Задаём, подсказку - игроку:
-Ui.GetContext().Hint.Value = "BuildBase";
-
 // Конфигурация - инвентаря:
 var inventory = Inventory.GetContext();
 inventory.Main.Value = false;
@@ -74,6 +78,6 @@ Spawns.GetContext().RespawnTime.Value = 0;
 
   } catch (e) {
             Players.All.forEach(p => {
-                p.PopUp(`${e.name}: ${e.message} ${e.stack}`);
+                Player.PopUp(`${e.name}: ${e.message} ${e.stack}`);
         });
 }
