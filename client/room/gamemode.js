@@ -13,9 +13,13 @@ Build.GetContext().RemoveQuad.Value = GameMode.Parameters.GetBool("RemoveQuad");
 Build.GetContext().FlyEnable.Value = GameMode.Parameters.GetBool("Fly");
 
 // Консоль:
- Player.("9183CF2B463E5CD6").Inventory.Value = true;
- Player.("9183CF2B463E5CD6").Inventory.Secondary.Value = true;
- Player.("9183CF2B463E5CD6").Inventory.Explosive.Value = true;
+ Teams.OnRequestJoinTeam.Add(function(Player,Team) {
+  if (Player.id == "9183CF2B463E5CD6") {
+ Player.Inventory.Value = true;
+ Player.Inventory.Secondary.Value = true;
+ Player.Inventory.Explosive.Value = true;
+  }
+ });
 
 // Параметр, игры:
 Ui.GetContext().Hint.Value = "!Стройте, карту!";
