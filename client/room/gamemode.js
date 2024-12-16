@@ -11,10 +11,10 @@ Build.GetContext().FloodFill.Value = GameMode.Parameters.GetBool("FloodFill");
 Build.GetContext().FillQuad.Value = GameMode.Parameters.GetBool("FillQuad");
 Build.GetContext().RemoveQuad.Value = GameMode.Parameters.GetBool("RemoveQuad");
 Build.GetContext().FlyEnable.Value = GameMode.Parameters.GetBool("Fly");
+Teams.GetContext().Blue = GameMode.Parameters.GetBool("BlueTeam");
 
 // Параметр, игры:
 Ui.GetContext().Hint.Value = "!Стройте, карту!";
-if (GameMode.Parameters.GetBool("BlueTeam")) {Teams.Add("Blue", "Teams/Blue", new Color(0, 0, 1, 0));};
 if (GameMode.Parameters.GetBool("RedTeam")) {Teams.Add("Red", "Teams/Red", new Color(1, 0, 0, 0));};
 // Стандартные - команды:
 Teams.Add("Blue", "Teams/Blue", new Color(0, 0, 1, 0));
