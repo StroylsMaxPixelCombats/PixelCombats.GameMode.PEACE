@@ -52,6 +52,10 @@
         "Name": "Fly",
         "DisplayName": "ПАЛЁТ",
         "Default": true
+      },
+      {
+        "Name": "Tdm&Peace",
+        "DisplayName": "ПОНОЖОВЩИНА",
       }
     ]
   }
