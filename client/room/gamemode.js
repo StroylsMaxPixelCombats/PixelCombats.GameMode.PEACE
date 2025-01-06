@@ -1,5 +1,5 @@
 import { Color, DisplayValueHeader } from 'pixel_combats/basic';
-import { Players, LeaderBoard, Inventory, BreackGraph, BuildBlocksSet, Damage, Teams, Ui, Build, Spawns, GameMode, Properties } from 'pixel_combats/room';
+import { Players, LeaderBoard, Timers, Game, Inventory, BreackGraph, BuildBlocksSet, Damage, Teams, Ui, Build, Spawns, GameMode, Properties } from 'pixel_combats/room';
 
 try {
  
@@ -96,6 +96,24 @@ Damage.OnDeath.Add(function(Player) {
  Spawns.OnSpawn.Add(function(Player) {
 	++Player.Properties.Spawns.Value;
  });
+
+// Константы:
+var BuildModeTime = 31;
+var GameModeTime = 601;
+var EndOfMatchTime = 11;
+
+// Константы, имён:
+var BuildModeStateValue = "BuildMode";
+var GameModeStateValue = "GameMode";
+var EndOfMatchStateValue = "End0fMatch";
+
+// Постоянные, переменные:
+var mainTimer = Timers.GetContext().Get("Main");
+var stateProp = Properties.GetContext().Get("State");
+
+// Переключатели, режимов:
+
+
 }
  
 // Настройки:
