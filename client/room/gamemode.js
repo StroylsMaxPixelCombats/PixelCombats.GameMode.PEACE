@@ -50,6 +50,9 @@ if (GameMode.Parameters.GetBool("BlueHasNothing")) {
  BlueTeam.Inventory.Explosive.Value = false; 
  BlueTeam.Inventory.Build.Value = false;
 }
+var BlueTeam = GameMode.Parameters.GetBool("BlueTeam");
+var RedTeam = GameMode.Parameters.GetBool("RedTeam");
+ 
 // Разрешаем, вход в команды - по запросу:
 Teams.OnRequestJoinTeam.Add(function(Player, Team) { Team.Add(Player); });
 // Разрешаем, спавн - по входу в, команду:
