@@ -14,7 +14,7 @@ Build.GetContext().FlyEnable.Value = GameMode.Parameters.GetBool("Fly");
 
 // Параметры, игры:
 Properties.GetContext().GameModeName.Value = "GameModes/Peace";
-Ui.GetContext().Hint.Value = "Hint/BuildMode";
+Ui.GetContext().Hint.Value = "!Игровой, режим!";
 // Стандартные - команды:
 Teams.Add("Blue", "Teams/Blue", new Color(0, 0, 1, 0));
 Teams.Add("Red", "Teams/Red", new Color(1, 0, 0, 0));
