@@ -1,4 +1,4 @@
-import { Color } from 'pixel_combats/basic';
+import { Color, DisplayValueHeader } from 'pixel_combats/basic';
 import { Players, Inventory, BreackGraph, BuildBlocksSet, Damage, Teams, Ui, Build, Spawns, GameMode, Properties } from 'pixel_combats/room';
 
 try {
@@ -42,6 +42,57 @@ Build.GetContext().RenameMapEnable.Value = true;
 Build.GetContext().ChangeMapAuthorsEnable.Value = true;
 Build.GetContext().LoadMapEnable.Value = true;
 Build.GetContext().ChangeSpawnsEnable.Value = true;
+
+// ЛидерБорды:
+ LeaderBoard.PlayerLeaderBoardValues = [
+	{
+		Value: "Kills",
+		DisplayName: "<b><size=30><color=#be5f1b>K</color><color=#b65219>i</color><color=#ae4517>l</color><color=#a63815>l</color><color=#9e2b13>s</color></size></b>",
+		ShortDisplayName: "<b><size=30><color=#be5f1b>K</color><color=#b65219>i</color><color=#ae4517>l</color><color=#a63815>l</color><color=#9e2b13>s</color></size></b>"
+	},
+	{
+		Value: "Deaths",
+		DisplayName: "<b><size=30><color=#be5f1b>D</color><color=#b85519>e</color><color=#b24b17>a</color><color=#ac4115>t</color><color=#a63713>h</color><color=#a02d11>s</color></size></b>",
+		ShortDisplayName: "<b><size=30><color=#be5f1b>D</color><color=#b85519>e</color><color=#b24b17>a</color><color=#ac4115>t</color><color=#a63713>h</color><color=#a02d11>s</color></size></b>"
+	},
+	{
+		Value: "Spawns",
+		DisplayName: "<b><size=30><color=#be5f1b>S</color><color=#b85519>p</color><color=#b24b17>a</color><color=#ac4115>w</color><color=#a63713>n</color><color=#a02d11>s</color></size></b>",
+		ShortDisplayName: "<b><size=30><color=#be5f1b>S</color><color=#b85519>p</color><color=#b24b17>a</color><color=#ac4115>w</color><color=#a63713>n</color><color=#a02d11>s</color></size></b>"
+	},
+	{
+		Value: "Scores",
+		DisplayName: "<b><size=30><color=#be5f1b>S</color><color=#b85519>c</color><color=#b24b17>o</color><color=#ac4115>r</color><color=#a63713>e</color><color=#a02d11>s</color></size></b>",
+		ShortDisplayName: "<b><size=30><color=#be5f1b>S</color><color=#b85519>c</color><color=#b24b17>o</color><color=#ac4115>r</color><color=#a63713>e</color><color=#a02d11>s</color></size></b>"
+	}
+];
+LeaderBoard.TeamLeaderBoardValue = {
+	Value: "Deaths",
+	DisplayName: "Statistics\Deaths",
+	ShortDisplayName: "Statistics\Deaths"
+};
+// Параметр, лидерБорда:
+LeaderBoard.TeamWeightGetter.Set(function(Team) {
+	return Team.Properties.Get("Deaths").Value;
+});
+LeaderBoard.PlayersWeightGetter.Set(function(Player) {
+	return Player.Properties.Get("Kills").Value;
+});
+// Счётчики:
+Damage.OnKill.Add(function(Player, Killed) {
+	if (Killed.Team != null && Killed.Team != Player.Team) {
+		++Player.Properties.Kills.Value;
+		Player.Properties.Scores.Value += 100;
+	}
+});
+
+Damage.OnDeath.Add(function(Player) {
+  ++Player.Properties.Deaths.Value;
+});
+
+ Spawns.OnSpawn.Add(function(Player) {
+	++Player.Properties.Spawns.Value;
+ });
  
 // Настройки:
 if (GameMode.Parameters.GetBool("BlueHasNothing")) {
