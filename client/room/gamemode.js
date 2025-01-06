@@ -110,9 +110,6 @@ var EndOfMatchStateValue = "End0fMatch";
 var mainTimer = Timers.GetContext().Get("Main");
 var stateProp = Properties.GetContext().Get("State");
 
-// Задаём, первое состояние - игре:
-SetBuildMode();
-	
 // Переключатели, режимов:
 mainTimer.OnTimer.Add(function() {
 	switch (stateProp.Value) {
@@ -131,19 +128,22 @@ mainTimer.OnTimer.Add(function() {
 	}
 });
 
+// Задаём, первое состояние - игре:
+SetBuildMode();
+	
 // Состояние, игры:
 function SetBuildMode() {
 	stateProp.Value = BuildModeStateValue;
 	Ui.GetContext().Hint.Value = "!Застраивайте базу, и сражайтесь - ножами!";
 	mainTimer.Restart(BuildBaseTime);
 }
-function SetGameMode() {
-	
+function SetGameMode() {	
 	stateProp.Value = GameStateValue;
+	
 	Ui.GetContext().Hint.Value = "!Поножовщина!";
 
 	mainTimer.Restart(GameModeTime);
-	SpawnsTeams();
+	SpawnTeams();
 }	
 function SetEndOfMatchMode() {
 	stateProp.Value = EndOfMatchStateValue;
@@ -151,6 +151,7 @@ function SetEndOfMatchMode() {
 
 	mainTimer.Restart(EndOfMatchTime);
 	Game.GameOver(LeaderBoard.GetTeams());
+	
 	Spawns.GetContext().Enable = false;
 	Spawns.GetContext().Despawn();
 }
@@ -160,7 +161,7 @@ function RestartGame() {
   function SpawnTeams() {
  var Spawns = Teams.Spawn();
 Spawns.GetContext().Spawn();
-   }
+      } 
 }
 	
 // Настройки:
