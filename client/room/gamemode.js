@@ -46,7 +46,6 @@ Build.GetContext().ChangeSpawnsEnable.Value = true;
 
 // ЛидерБорды:
 if (GameMode.Parameters.GetBool("Tdm&Peace")) {
-Ui.GetContext().Hint.Value = "!Застраивайте базу, и сражайтесь - ножами!";
  LeaderBoard.PlayerLeaderBoardValues = [
 	{
 		Value: "Kills",
@@ -111,11 +110,59 @@ var EndOfMatchStateValue = "End0fMatch";
 var mainTimer = Timers.GetContext().Get("Main");
 var stateProp = Properties.GetContext().Get("State");
 
+// Задаём, первое состояние - игре:
+SetBuildMode();
+	
 // Переключатели, режимов:
+mainTimer.OnTimer.Add(function() {
+	switch (stateProp.Value) {
+	case BuildModeStateValue:
+		SetGameMode();
+		break;
+	case GameModeStateValue:
+		SetEnd0fMatch();
+		break;
+	case GameStateValue:
+		SetEndOfMatchMode();
+		break;
+	case EndOfMatchStateValue
+		RestartGame();
+		break;
+	}
+});
 
-
+// Состояние, игры:
+function SetBuildMode() {
+	stateProp.Value = BuildModeStateValue;
+	Ui.GetContext().Hint.Value = "!Застраивайте базу, и сражайтесь - ножами!";
+	mainTimer.Restart(BuildBaseTime);
 }
- 
+function SetGameMode() {
+	
+	stateProp.Value = GameStateValue;
+	Ui.GetContext().Hint.Value = "!Поножовщина!";
+
+	mainTimer.Restart(GameModeTime);
+	SpawnsTeams();
+}	
+function SetEndOfMatchMode() {
+	stateProp.Value = EndOfMatchStateValue;
+	Ui.GetContext().Hint.Value = "!Конец, матча!";
+
+	mainTimer.Restart(EndOfMatchTime);
+	Game.GameOver(LeaderBoard.GetTeams());
+	Spawns.GetContext().Enable = false;
+	Spawns.GetContext().Despawn();
+}
+function RestartGame() {
+ Game.RestartGame();
+}
+  function SpawnTeams() {
+ var Spawns = Teams.Spawn();
+Spawns.GetContext().Spawn();
+   }
+}
+	
 // Настройки:
 if (GameMode.Parameters.GetBool("BlueHasNothing")) {
  BlueTeam.Inventory.Main.Value = false;
