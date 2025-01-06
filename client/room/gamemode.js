@@ -1,5 +1,5 @@
 import { Color } from 'pixel_combats/basic';
-import { Players, Inventory, BreackGraph, BuildBlocksSet, Damage, Teams, Ui, Build, Spawns, GameMode } from 'pixel_combats/room';
+import { Players, Inventory, BreackGraph, BuildBlocksSet, Damage, Teams, Ui, Build, Spawns, GameMode, Properties } from 'pixel_combats/room';
 
 try {
  
@@ -12,7 +12,8 @@ Build.GetContext().FillQuad.Value = GameMode.Parameters.GetBool("FillQuad");
 Build.GetContext().RemoveQuad.Value = GameMode.Parameters.GetBool("RemoveQuad");
 Build.GetContext().FlyEnable.Value = GameMode.Parameters.GetBool("Fly");
 
-// Параметр, игры:
+// Параметры, игры:
+Properties.GetContext().GameModeName.Value = "GameModes/Peace";
 Ui.GetContext().Hint.Value = "Hint/BuildMode";
 // Стандартные - команды:
 Teams.Add("Blue", "Teams/Blue", new Color(0, 0, 1, 0));
