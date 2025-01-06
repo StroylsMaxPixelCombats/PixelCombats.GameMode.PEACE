@@ -1,6 +1,6 @@
 {
-  "Name": "МИР <i>(API 1.0)</i>",
-  "Description": "Мирный режим",
+  "Name": "МИР",
+  "Description": "Peace Mode. Мирный режим",
   "StartClientVersion": 532,
   "MapLists": [
     {
