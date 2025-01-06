@@ -13,7 +13,7 @@ Build.GetContext().RemoveQuad.Value = GameMode.Parameters.GetBool("RemoveQuad");
 Build.GetContext().FlyEnable.Value = GameMode.Parameters.GetBool("Fly");
 
 // Параметр, игры:
-Ui.GetContext().Hint.Value = "Hint/PeaceMode";
+Ui.GetContext().Hint.Value = "Hint/BuildMode";
 // Стандартные - команды:
 Teams.Add("Blue", "Teams/Blue", new Color(0, 0, 1, 0));
 Teams.Add("Red", "Teams/Red", new Color(1, 0, 0, 0));
