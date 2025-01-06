@@ -1,5 +1,5 @@
-import { Color, DisplayValueHeader } from 'pixel_combats/basic';
-import { Players, LeaderBoard, Timers, Game, Inventory, BreackGraph, BuildBlocksSet, Damage, Teams, Ui, Build, Spawns, GameMode, Properties } from 'pixel_combats/room';
+import { DisplayValueHeader, Color } from 'pixel_combats/basic';
+import { Players, LeaderBoard, Timers, Game, Inventory, BreackGraph, BuildBlocksSet, Damage, Teams, Ui, Build, Spawns, GameMode, Properties, msg } from 'pixel_combats/room';
 
 try {
  
@@ -100,6 +100,7 @@ Damage.OnDeath.Add(function(Player) {
 var BuildModeTime = 31;
 var GameModeTime = 601;
 var EndOfMatchTime = 11;
+Spawns.GetContext().RespawnTime.Value = 5;
 
 // Константы, имён:
 var BuildModeStateValue = "BuildMode";
@@ -137,7 +138,8 @@ function SetBuildMode() {
 	Ui.GetContext().Hint.Value = "!Застраивайте базу, и сражайтесь - ножами!";
 	mainTimer.Restart(BuildBaseTime);
 }
-function SetGameMode() {	
+function SetGameMode() 
+{	
 	stateProp.Value = GameStateValue;
 	
 	Ui.GetContext().Hint.Value = "!Поножовщина!";
@@ -148,10 +150,9 @@ function SetGameMode() {
 function SetEndOfMatchMode() {
 	stateProp.Value = EndOfMatchStateValue;
 	Ui.GetContext().Hint.Value = "!Конец, матча!";
-
 	mainTimer.Restart(EndOfMatchTime);
+
 	Game.GameOver(LeaderBoard.GetTeams());
-	
 	Spawns.GetContext().Enable = false;
 	Spawns.GetContext().Despawn();
 }
@@ -194,6 +195,6 @@ Spawns.GetContext().RespawnTime.Value = 0;
 
   } catch (e) {
             Players.All.forEach(p => {
-                Player.PopUp(`${e.name}: ${e.message} ${e.stack}`);
+                msg.Show(`${e.name}: ${e.message} ${e.stack}`);
         });
 }
