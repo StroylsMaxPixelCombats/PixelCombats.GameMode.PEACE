@@ -43,7 +43,10 @@ Build.GetContext().ChangeMapAuthorsEnable.Value = true;
 Build.GetContext().LoadMapEnable.Value = true;
 Build.GetContext().ChangeSpawnsEnable.Value = true;
 
+
 // ЛидерБорды:
+if (GameMode.Parameters.GetBool("Tdm&Peace")) {
+Ui.GetContext().Hint.Value = "!Застраивайте базу, и сражайтесь - ножами!";
  LeaderBoard.PlayerLeaderBoardValues = [
 	{
 		Value: "Kills",
@@ -93,6 +96,7 @@ Damage.OnDeath.Add(function(Player) {
  Spawns.OnSpawn.Add(function(Player) {
 	++Player.Properties.Spawns.Value;
  });
+}
  
 // Настройки:
 if (GameMode.Parameters.GetBool("BlueHasNothing")) {
