@@ -46,7 +46,6 @@ Build.GetContext().ChangeSpawnsEnable.Value = true;
 
 // ЛидерБорды:
 if (GameMode.Parameters.GetBool("Tdm&Peace")) {
-Spawns.RespawnTime.Value = 5;
  LeaderBoard.PlayerLeaderBoardValues = [
 	{
 		Value: "Kills",
