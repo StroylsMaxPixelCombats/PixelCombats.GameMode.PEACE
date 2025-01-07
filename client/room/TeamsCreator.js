@@ -1,3 +1,3 @@
-import * as Peace from './TeamsCreator.js';
+import * as Peace from './GameModeParameters.js';
 
 Peace.TeamsCreator();
