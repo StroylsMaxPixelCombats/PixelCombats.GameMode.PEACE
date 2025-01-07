@@ -1,6 +1,8 @@
 import { DisplayValueHeader, Color } from 'pixel_combats/basic';
 import { Players, LeaderBoard, Timers, Game, Inventory, BreackGraph, BuildBlocksSet, Damage, Teams, Ui, Build, Spawns, GameMode, Properties, msg } from 'pixel_combats/room';
-
+import * as 
+	
+	
 try {
  
 // Применяем - параметры, создания комнаты: 
