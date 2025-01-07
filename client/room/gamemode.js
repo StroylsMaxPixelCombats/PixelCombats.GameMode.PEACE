@@ -1,8 +1,8 @@
 import { DisplayValueHeader, Color } from 'pixel_combats/basic';
 import { Players, LeaderBoard, Timers, Game, Inventory, BreackGraph, BuildBlocksSet, Damage, Teams, Ui, Build, Spawns, GameMode, Properties, msg } from 'pixel_combats/room';
-import * as 
-	
-	
+import * as TeamsCreator from './TeamsCreator.js';
+import * as GameModeParameters from './GameModeParameters.js';
+
 try {
  
 // Применяем - параметры, создания комнаты: 
